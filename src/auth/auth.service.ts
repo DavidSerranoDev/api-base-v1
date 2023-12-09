@@ -40,8 +40,8 @@ export class AuthService {
         }
         
         //Comprobamos password
-        const isPasswordValid = await bcryptjs.compare(password, user.password);
-        if(!isPasswordValid){
+        const isValidPassword = await bcryptjs.compare(password, user.password);
+        if(!isValidPassword){
             throw new UnauthorizedException('La contraseña es incorrecta');
         }
         //Información pública que viaja en el token para identificar el propietario
