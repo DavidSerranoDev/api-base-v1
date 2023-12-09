@@ -24,7 +24,7 @@ export class AuthService {
         }
 
         //Guardamos el usuario en una variable
-        await this.usersService.create({
+        return await this.usersService.create({
             name,
             email,
             //hasheamos la password
