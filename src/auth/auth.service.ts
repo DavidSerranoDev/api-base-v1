@@ -45,7 +45,7 @@ export class AuthService {
             throw new UnauthorizedException('La contraseña es incorrecta');
         }
         //Información pública que viaja en el token para identificar el propietario
-        const payload = { email:user.email };
+        const payload = { email:user.email, role: user.role };
         //Generamos el token
         const token = await this.jwtService.signAsync(payload);
 
