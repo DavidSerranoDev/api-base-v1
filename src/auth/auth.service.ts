@@ -9,10 +9,12 @@ import { JwtService } from '@nestjs/jwt';
 
 @Injectable()
 export class AuthService {
+    
     constructor(
         private readonly usersService: UsersService,
         private readonly jwtService: JwtService
     ){}
+
     async register({name, email, password}: RegisterDto){
         //Comprobamos si el usuario que se va a registrar existe ya en nuesta DB.
         const user = await this.usersService.findOneByEmail(email);
