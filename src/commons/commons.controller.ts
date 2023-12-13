@@ -4,6 +4,7 @@ import { AuthGuard } from "src/auth/guard/auth.guard";
 import { Roles } from "src/auth/decorators/roles.decorator";
 import { RolesConstants } from "src/auth/constatns/roles.constants";
 import { RolesGuard } from "src/auth/guard/roles.guard";
+import { Auth } from "src/auth/decorators/auth.decorator";
 
 export abstract class BaseController<T> {
 
@@ -26,24 +27,21 @@ export abstract class BaseController<T> {
     }
 
     @Post('save')
-    @Roles(RolesConstants.SUPER_ADMIN)
-    @UseGuards(AuthGuard,RolesGuard)
+    @Auth(RolesConstants.SUPER_ADMIN)
     @HttpCode(HttpStatus.CREATED)
     async save(@Body() entity: T) : Promise<T> {
         return await this.getService().save(entity);
     }
 
     @Post('save/many')
-    @Roles(RolesConstants.SUPER_ADMIN)
-    @UseGuards(AuthGuard,RolesGuard)
+    @Auth(RolesConstants.SUPER_ADMIN)
     @HttpCode(HttpStatus.CREATED)
     async saveMany(@Body() entities: T[]) : Promise<T[]> {
         return await this.getService().saveMany(entities);
     }
 
     @Post('delete/:id')
-    @Roles(RolesConstants.SUPER_ADMIN)
-    @UseGuards(AuthGuard,RolesGuard)
+    @Auth(RolesConstants.SUPER_ADMIN)
     @HttpCode(HttpStatus.OK)
     async delete(@Param('id') id: any) {
         return this.getService().delete(id);
