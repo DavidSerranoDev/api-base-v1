@@ -1,9 +1,7 @@
 import { Body, Get, HttpCode, HttpStatus, Param, Post, UseGuards } from "@nestjs/common";
 import { BaseService } from "./commons.service";
 import { AuthGuard } from "src/auth/guard/auth.guard";
-import { Roles } from "src/auth/decorators/roles.decorator";
 import { RolesConstants } from "src/auth/constatns/roles.constants";
-import { RolesGuard } from "src/auth/guard/roles.guard";
 import { Auth } from "src/auth/decorators/auth.decorator";
 
 export abstract class BaseController<T> {
