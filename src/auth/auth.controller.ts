@@ -5,6 +5,7 @@ import { LoginDto } from './dto/login.dto';
 import { AuthGuard } from './guard/auth.guard';
 import { RequestWithUser } from './interfaces/request.with.user.interface';
 import { Roles } from './decorators/roles.decorator';
+import { RolesConstants } from './constatns/roles.constants';
 
 @Controller('auth')
 export class AuthController {
@@ -28,7 +29,7 @@ export class AuthController {
 
      
     @Get('profile')
-    @Roles('admin')
+    @Roles(RolesConstants.USER)
     @UseGuards(AuthGuard)
     profile(
         @Request()
