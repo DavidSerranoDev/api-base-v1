@@ -13,7 +13,7 @@ import { AuthModule } from './auth/auth.module';
       port:3306,
       username:'david',
       password:'000000',
-      database:'api_base_project_v1',
+      database:'api_acf_dev',
       entities: [__dirname + '/**/*.entity.{js,ts}']
     }),
     UsersModule,
