@@ -48,10 +48,10 @@ export class AuthService {
         const payload = { email:user.email, role: user.role };
         //Generamos el token
         const token = await this.jwtService.signAsync(payload);
-
+            
         return {
             token,
-            email
+            user
         };
     }
 }
