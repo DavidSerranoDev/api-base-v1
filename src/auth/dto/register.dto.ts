@@ -21,5 +21,6 @@ export class RegisterDto {
     @IsString()
     role:string
 
+    
     identity_document:string
 }
