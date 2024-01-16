@@ -3,12 +3,12 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { BaseService } from 'src/commons/commons.service';
 import { Repository } from 'typeorm';
-import { User } from './entities/user.entity';
+import { Users } from './entities/users.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 
 @Injectable()
-export class UsersService extends BaseService<User> {
-  constructor(@InjectRepository(User) private userRepo: Repository<User>){
+export class UsersService extends BaseService<Users> {
+  constructor(@InjectRepository(Users) private userRepo: Repository<Users>){
     super();
   }
 
@@ -20,7 +20,7 @@ export class UsersService extends BaseService<User> {
     return this.userRepo.findOneBy({email});
   }
 
-  getRepository(): Repository<User>{
+  getRepository(): Repository<Users>{
       return this.userRepo;
   }
 }

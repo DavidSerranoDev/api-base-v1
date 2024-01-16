@@ -7,18 +7,19 @@ import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
+    
     TypeOrmModule.forRoot({
       type:'mysql',
-      host:'localhost',
-      port:3306,
-      username:'david',
-      password:'000000',
-      database:'api_acf_dev',
+      host:'monorail.proxy.rlwy.net',
+      port:21882,
+      username:'root',
+      password:'FbBgEF-3HA4ED1FDc1eGbCDefG2bfDD5',
+      database:'railway',
       entities: [__dirname + '/**/*.entity.{js,ts}']
     }),
     UsersModule,
     AuthModule 
-    
+
   ],
   controllers: [AppController],
   providers: [AppService],
